@@ -201,21 +201,50 @@
                     action="https://formspree.io/f/mrgrkael"
                     method="POST"
                 >
-                    <input type="text" name="Name" class="contact-form-input" placeholder="Name">
-                    <input type="email" name="Reply_to" class="contact-form-input" placeholder="Email">
-                    <input type="text" name="Subject" class="contact-form-input" placeholder="Subject">
+                    <input 
+                        type="text" 
+                        name="Name" 
+                        class="contact-form-input" 
+                        placeholder="Name" 
+                        required
+                    >
+                    <input 
+                        type="email" 
+                        name="Reply_to" 
+                        class="contact-form-input" 
+                        placeholder="Email" 
+                        required
+                    >
+                    <input 
+                        type="text" 
+                        name="Subject" 
+                        class="contact-form-input" 
+                        placeholder="Subject"
+                    >
                     <textarea
                         class="contact-form-input contact-form-textarea pointer-enter"
                         placeholder="Message"
                         id="message"
                         autocomplete="off"
                         name="Message"
+                        required
                     ></textarea>
-                    <input id="my-form-button" type="submit" class="form-submit-btn" value="Send Request">
+                    <input 
+                        id="my-form-button" 
+                        type="submit" 
+                        class="form-submit-btn" 
+                        value="Send Request"
+                    >
                     <p id="my-form-status" class="center"></p>
                 </form>
             </div>
             <!-- End of Form -->
+
+            <!-- Social media slideshow -->
+            <div class="slideshow">
+                <a href="#" class="slideshow-link"></a>
+            </div>
+            <!-- End of Social media slideshow -->
 
         </section>
         <!--**************** End of Section 4 ****************-->
