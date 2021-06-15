@@ -76,9 +76,25 @@ mainBtns.forEach(btn => {
         btn.removeChild(ripple)
     })
 })
-
-
 // End of Main button
+
+// Navigation
+const menuIcon = document.querySelector('.menu-icon')
+const navbar = document.querySelector('.navbar')
+
+document.addEventListener('scroll', () => {
+    menuIcon.classList.add('show-menu-icon')
+    navbar.classList.add('hide-navbar')
+    if (window.scrollY === 0 ) {
+        menuIcon.classList.remove('show-menu-icon')
+        navbar.classList.remove('hide-navbar')
+    }
+})
+menuIcon.addEventListener('click', () => {
+    menuIcon.classList.remove('show-menu-icon')
+    navbar.classList.remove('hide-navbar')
+})
+// End of Navigation
 
 // About me text
 const aboutMeText = document.querySelector('.about-me-text');
@@ -203,5 +219,28 @@ async function handleSubmit(event) {
 }
 form.addEventListener("submit", handleSubmit)
 // End of Form 
+
+// Slideshow
+const slideshow = document.querySelector('.slideshow')
+setInterval(() => {
+    const firstIcon = slideshow.firstElementChild
+    firstIcon.classList.add('faded-out')
+
+    const secondIcon = slideshow.children[2]
+    secondIcon.classList.add('light')
+    secondIcon.previousElementSibling.classList.remove('light')
+
+    setTimeout(() => {
+        slideshow.removeChild(firstIcon)
+        slideshow.appendChild(firstIcon)
+
+        setTimeout(() => {
+            firstIcon.classList.remove('faded-out')
+        }, 500)
+
+    }, 500)
+
+}, 5000)
+// End of Slideshow
 // End of Section 4 
 
