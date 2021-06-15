@@ -198,7 +198,7 @@ async function handleSubmit(event) {
     status.classList.add('my-form-status')
     form.reset()
   }).catch(error => {
-    status.innerHTML = "Oops! There was a problem submitting your form"
+    status.innerHTML = "Oops! Something went wrong"
   });
 }
 form.addEventListener("submit", handleSubmit)
