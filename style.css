@@ -446,6 +446,9 @@ html {
     left: 50%;
     transform: translateX(-50%);
 }
+.projects-btn .main-btn-line {
+    transition: all 0.5s;
+}
 
 .change > .main-btn-line:nth-child(1) {
     transform: rotateZ(45deg) translateX(-0.65rem);

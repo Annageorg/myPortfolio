@@ -46,12 +46,12 @@ const animateCircles = (e, x, y) => {
 document.body.addEventListener("mousemove", (e) => {
     let x = e.clientX;
     let y = e.clientY;
-  
+
     mouseCircleFn(x, y);
     animateCircles(e, x, y);
 });
 
-document.body.addEventListener('mouseleave' , (e) => {
+document.body.addEventListener('mouseleave', (e) => {
     mouseCircle.style.opacity = '0';
     mouseDot.style.opacity = '0';
 })
@@ -65,12 +65,12 @@ mainBtns.forEach(btn => {
     btn.addEventListener('mouseenter', (e) => {
         const left = e.clientX - e.target.getBoundingClientRect().left;
         const top = e.clientY - e.target.getBoundingClientRect().top;
-    
+
         ripple = document.createElement('div')
         ripple.classList.add('ripple')
-        ripple.style.left=`${left}px`    
-        ripple.style.top=`${top}px`
-        btn.prepend(ripple)    
+        ripple.style.left = `${left}px`
+        ripple.style.top = `${top}px`
+        btn.prepend(ripple)
     })
     btn.addEventListener('mouseleave', () => {
         btn.removeChild(ripple)
@@ -100,15 +100,15 @@ const projects = document.querySelectorAll('.project');
 
 projects.forEach((project, i) => {
     project.addEventListener('mouseenter', () => {
-        project.firstElementChild.style.top = 
-        `-${project.firstElementChild.offsetHeight - project.offsetHeight + 20}px`
+        project.firstElementChild.style.top =
+            `-${project.firstElementChild.offsetHeight - project.offsetHeight + 20}px`
     })
     project.addEventListener('mouseleave', () => {
         project.firstElementChild.style.top = '2rem'
     })
     i >= 6 &&
-        (project.style.cssText ="display: none; opacity: 0;")
-    
+        (project.style.cssText = "display: none; opacity: 0;")
+
 })
 
 // Projects button
@@ -117,36 +117,43 @@ const projectsBtn = document.querySelector('.projects-btn')
 const projectsBtnText = document.querySelector('.projects-btn span')
 let showHideBool = true;
 
-projectsBtn.addEventListener('click', (e) => {
-    e.preventDefault()
+const showProjects = (project, i) => {
+    setTimeout(() => {
+        project.style.display = "flex";
+        section3.scrollIntoView({ block: "end" });
+    }, 600);
 
-    projectsBtn.firstElementChild.nextElementSibling.classList.toggle('change')
+    setTimeout(() => {
+        project.style.opacity = "1";
+    }, i * 200);
+};
 
+const hideProjects = (project, i) => {
+    setTimeout(() => {
+        project.style.display = "none";
+        section3.scrollIntoView({ block: "end" });
+    }, 1200);
+
+    setTimeout(() => {
+        project.style.opacity = "0";
+    }, i * 100);
+};
+
+projectsBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+  
+    projectsBtn.firstElementChild.nextElementSibling.classList.toggle("change");
+  
+    showHideBool
+      ? (projectsBtnText.textContent = "Show Less")
+      : (projectsBtnText.textContent = "Show More");
+  
     projects.forEach((project, i) => {
-        if (i >= 6) {
-            if (showHideBool){
-                setTimeout(() => {
-                    project.style.display = "flex"
-                    section3.scrollIntoView({ block: "end" })
-                }, 600)
-                setTimeout(() => {
-                    project.style.opacity = "1"
-                }, i*200)
-
-                projectsBtnText.textContent = 'Show Less'
-            } else {
-                setTimeout(() => {
-                    project.style.display = "none"
-                }, 1200)
-                setTimeout(() => {
-                    project.style.opacity = "0"
-                }, i*100)
-                projectsBtnText.textContent = 'Show More'
-            }
-        }
-    })
-    showHideBool = !showHideBool
-})
+      i >= 6 &&
+        (showHideBool ? showProjects(project, i) : hideProjects(project, i));
+    });
+    showHideBool = !showHideBool;
+  });
 // End of Projects button
 
 // End of Projects
