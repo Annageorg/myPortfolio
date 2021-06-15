@@ -10,6 +10,21 @@
     outline: none;
     font-family: 'Poppins', sans-serif;
 }
+/* Section heading */
+.section-heading {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #fff;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 10rem;
+    transform: translateY(-50%);
+    width: 0;
+    word-break: break-all;
+    line-height: 3;
+}
+/* End of Section heading */
 /* Main Button */
 .main-btn {
     position: absolute;
@@ -284,21 +299,6 @@ html {
     position: relative;
     padding: 10rem 10rem 15rem 10rem;
 }
-/* Section 2 heading */
-.section-2-heading {
-    font-size: 2rem;
-    font-weight: 300;
-    color: #fff;
-    text-transform: uppercase;
-    position: absolute;
-    top: 50%;
-    left: 10rem;
-    transform: translateY(-50%);
-    width: 0;
-    word-break: break-all;
-    line-height: 3;
-}
-/* End of Section 2 heading */
 
 /* About me text */
 .about-me-text {
@@ -343,7 +343,6 @@ html {
 
 /********** End of Section 2 **********/
 
-
 /********** Section 3 **********/
 .section-3 {
     width: 100%;
@@ -377,7 +376,6 @@ html {
     object-fit: cover;
     position: absolute;
     top: 2rem;
-    cursor: pointer;
     transition: top 4s 0.2s, opacity 0.2s;
     opacity: 0.5;
 }
@@ -463,3 +461,74 @@ html {
 }
 /* End of Projects button */
 /********** End of Section 3 **********/
+
+/********** Section 4 **********/
+.section-4 {
+    position: relative;
+    height: 100vh;
+}
+/* Form */
+/* Form heading */
+.form-heading {
+    font-family: "Poppins", sans-serif;
+    font-size: 6rem;
+    font-weight: 400;
+    color: #9b0e0e;
+    letter-spacing: 0.32rem;
+    margin-bottom: 3rem;
+    transition: opacity 0.3s;
+}
+/* End of Form heading */
+.contact-form {
+    flex-direction: column;
+}
+.contact-form-input {
+    width: 60rem;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 0.1rem solid #9b0e0e;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #aaa;
+    letter-spacing: 0.1rem;
+    height: 5rem;
+}
+.contact-form-textarea {
+    height: 20rem;
+    resize: none;
+}
+.form-submit-btn {
+    width: 20rem;
+    height: 5rem;
+    background-color: #9b0e0e;
+    border: none;
+    align-self: flex-start;
+    font-size: 1.8rem;
+    color: #fff;
+    cursor: pointer;
+}
+.my-form-status {
+    width: 60rem;
+    height: 5rem;
+    margin: 1rem 0;
+    color: #fff;
+    font-size: 2rem;
+    background-color: rgb(19, 19, 18);
+    border: none;
+    border-radius: 1rem;
+    animation: status 5s ease forwards;
+}
+@keyframes status {
+    0%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+/* End of Form */
+/********** End of Section 4 **********/

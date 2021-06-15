@@ -158,3 +158,50 @@ projectsBtn.addEventListener("click", (e) => {
 
 // End of Projects
 
+// Section 4 
+// Form 
+const formHeading = document.querySelector('.form-heading')
+const formInputs = document.querySelectorAll('.contact-form-input')
+
+formInputs.forEach((input) => {
+    input.addEventListener('focus', () => {
+        formHeading.style.opacity = '0'
+        setTimeout(() => {
+            formHeading.textContent = `Your ${input.placeholder}`
+            formHeading.style.opacity = '1'
+        }, 300)        
+    })
+    input.addEventListener('blur', () => {
+        formHeading.style.opacity = '0'
+        setTimeout(() => {
+            formHeading.textContent = `Let's Talk`
+            formHeading.style.opacity = '1'
+        }, 300)        
+    })
+})
+
+// **************************Form submission
+let form = document.getElementById("my-form");
+   
+async function handleSubmit(event) {
+  event.preventDefault();
+  let status = document.getElementById("my-form-status");
+  let data = new FormData(event.target);
+  fetch(event.target.action, {
+    method: form.method,
+    body: data,
+    headers: {
+        'Accept': 'application/json'
+    }
+  }).then(response => {
+    status.innerHTML = "Thank you for your submission!";
+    status.classList.add('my-form-status')
+    form.reset()
+  }).catch(error => {
+    status.innerHTML = "Oops! There was a problem submitting your form"
+  });
+}
+form.addEventListener("submit", handleSubmit)
+// End of Form 
+// End of Section 4 
+
