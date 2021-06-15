@@ -98,7 +98,7 @@ Array.from(aboutMeTextContent).forEach(char => {
 // Projects
 const projects = document.querySelectorAll('.project');
 
-projects.forEach((project) => {
+projects.forEach((project, i) => {
     project.addEventListener('mouseenter', () => {
         project.firstElementChild.style.top = 
         `-${project.firstElementChild.offsetHeight - project.offsetHeight + 20}px`
@@ -106,7 +106,48 @@ projects.forEach((project) => {
     project.addEventListener('mouseleave', () => {
         project.firstElementChild.style.top = '2rem'
     })
+    i >= 6 &&
+        (project.style.cssText ="display: none; opacity: 0;")
+    
 })
+
+// Projects button
+const section3 = document.querySelector('.section-3')
+const projectsBtn = document.querySelector('.projects-btn')
+const projectsBtnText = document.querySelector('.projects-btn span')
+let showHideBool = true;
+
+projectsBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+
+    projectsBtn.firstElementChild.nextElementSibling.classList.toggle('change')
+
+    projects.forEach((project, i) => {
+        if (i >= 6) {
+            if (showHideBool){
+                setTimeout(() => {
+                    project.style.display = "flex"
+                    section3.scrollIntoView({ block: "end" })
+                }, 600)
+                setTimeout(() => {
+                    project.style.opacity = "1"
+                }, i*200)
+
+                projectsBtnText.textContent = 'Show Less'
+            } else {
+                setTimeout(() => {
+                    project.style.display = "none"
+                }, 1200)
+                setTimeout(() => {
+                    project.style.opacity = "0"
+                }, i*100)
+                projectsBtnText.textContent = 'Show More'
+            }
+        }
+    })
+    showHideBool = !showHideBool
+})
+// End of Projects button
 
 // End of Projects
 
